@@ -1,28 +1,28 @@
 version: '3'
 services:
   search-app:
-    image: akshayverma004/search-app
+    image: akshayverma004/search-img:v1.0
     ports:
       - "81:80"
     deploy:
-      replicas: 2
+      replicas: 3
     volumes:
       - var/lib/search-app
   
   payment-app:
-   image: akshayverma004/payment-app
+   image: akshayverma004/payment-img:v1.0
    ports:
      - "82:80"
    deploy: 
-       replicas: 2
+      replicas: 3
    volumes:
       - var/lib/payment-app
 
   cart-app:
-    image: akshayverma004/cart-app
+    image: akshayverma004/cart-app-img:v1.0
     ports:
       - "83:80"
     deploy:
-      replicas: 2
+      replicas: 3
     volumes:
       - /var/lib/cart-app

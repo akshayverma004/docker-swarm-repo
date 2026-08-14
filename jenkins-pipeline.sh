@@ -1,13 +1,14 @@
 pipeline
 {
     agent any
+
     stages
     {
         stage('code')
         {
             steps
             {
-                git 'https://github.com/akshayverma004/docker-swarm-repo.git'
+                git branch: 'main', url: 'https://github.com/akshayverma004/docker-swarm-repo.git'
             }
         }
 
@@ -15,7 +16,7 @@ pipeline
         {
             steps
             {
-                sh 'docker build -t $image'
+                sh 'docker build -t $image .'
             }
         }
 
@@ -32,6 +33,7 @@ pipeline
             steps
             {
                 sh 'docker login -u akshayverma004 -p Akshay@328'
+                sh 'docker push $registry'
             }
         }
 
@@ -39,7 +41,7 @@ pipeline
         {
             steps
             {
-                sh 'docker stack deploy -c docker-compose.yml $stack_name'
+                sh 'docker stack deploy -c docker-compose.yml cloudOrvix'
             }
         }
     }
