@@ -24,7 +24,7 @@ pipeline
         {
             steps
             {
-                sh 'docker tag $image $registry'
+                sh 'docker tag $image $registry/$image'
             }
         }
 
