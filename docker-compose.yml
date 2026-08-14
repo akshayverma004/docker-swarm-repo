@@ -16,7 +16,7 @@ services:
       replicas: 3
 
   cart-app:
-    image: akshayverma004/cart-app-img:v1.0
+    image: akshayverma004/cart-img:v1.0
     ports:
       - "83:80"
     deploy:
